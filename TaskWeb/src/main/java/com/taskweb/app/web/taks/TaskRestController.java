@@ -2,6 +2,7 @@ package com.taskweb.app.web.taks;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.taskweb.app.domain.services.impl.TaskServiceImpl;
+
 
 
 
@@ -23,6 +26,9 @@ public class TaskRestController {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
+	@Autowired
+	private TaskServiceImpl taskServiceImpl;
+	
 	/**
 	 * Metodo para crear una task
 	 * @param taskDTO
@@ -31,6 +37,7 @@ public class TaskRestController {
     @PostMapping(path = "/create" )
     public ResponseEntity<String> createTask(@ModelAttribute(name = "taskDTO") String taskDTO) {
     	logger.debug("REST request to save Task : {}", taskDTO);
+    	taskServiceImpl.createTask(null);
         return new ResponseEntity<>("Create task", HttpStatus.OK);
     }
 	
@@ -41,7 +48,8 @@ public class TaskRestController {
      */
     @PutMapping("/update")
     public ResponseEntity<String> updateTask(@RequestBody String taskDTO) {
-    	logger.debug("REST request to update Task : {}", taskDTO);       
+    	logger.debug("REST request to update Task : {}", taskDTO);  
+    	taskServiceImpl.updateTask(null);
         return new ResponseEntity<>("Update task", HttpStatus.OK);
     }
 	
@@ -53,6 +61,7 @@ public class TaskRestController {
     @GetMapping("/task/{idTaskStr}")
     public ResponseEntity<String> getTask(@PathVariable String idTaskStr) {
     	logger.debug("REST request to get Task with id: {}", idTaskStr); 
+    	taskServiceImpl.getTask(null);
         return new ResponseEntity<>("Get task", HttpStatus.OK);
     }
     
@@ -64,6 +73,7 @@ public class TaskRestController {
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteTask(@RequestBody String idTaskStr) {
     	logger.debug("REST request to delete Task with id: {}", idTaskStr); 
+    	taskServiceImpl.deleteTask(null);
         return new ResponseEntity<>("Delete task", HttpStatus.OK);
     }
 }
