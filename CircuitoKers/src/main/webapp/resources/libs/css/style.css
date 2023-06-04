@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+/*barra lateral*/
+
+
+.contenedor::-webkit-scrollbar {
+	width: 8px !important;     /* Tamaño del scroll en vertical */
+    height: 8px !important;    /* Tamaño del scroll en horizontal */
+    display: none !important;  /* Ocultar scroll */
+}
+
+.contenedor::-webkit-scrollbar-thumb {
+    background: #ccc !important;
+    border-radius: 4px !important;
+}
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.contenedor::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3 !important;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+}
+/* Cambiamos el fondo cuando esté en active */
+.contenedor::-webkit-scrollbar-thumb:active {
+    background-color: #999999 !important;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.contenedor::-webkit-scrollbar-track {
+    background: #e1e1e1 !important;
+    border-radius: 4px !important;
+}
+/* Cambiamos el fondo cuando esté en active o hover */
+.contenedor::-webkit-scrollbar-track:hover,
+.contenedor::-webkit-scrollbar-track:active {
+  background: #d4d4d4 !important;
+}
+
+/*fin barra lateral*/
+
+.main {
+	height: 550px !important;
+}
+
+.main-form {
+	height: 350px !important;
+}
+
+.div-center {
+	display: flex;
+	justify-content: center;
+}
+
+.div-left {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.card-center {
+	margin: 0 auto !important;
+	float: none !important;
+	margin-bottom: 10px !important;
+	/*width:100% !important;*/
+}
+
+.negrita {
+	font-weight: bold;	
+}
+
+.c-black {
+	
+	font-weight: bold !important;
+}
+
+.bg-platino {
+	background: #F2F2F2 !important;
+	padding: 5px 5px 5px 5px;
+}
+
+.pie-pagina {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /*background-color: black;*/
+  color: white;
+  text-align: left;
+}
+
+
+
+
+
+

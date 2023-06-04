@@ -16,8 +16,11 @@ const createWindow = () => {
     },
   });
 
+  // and load the index.html of spring boot server
+  mainWindow.loadURL('https://www.electronjs.org/');
+
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  //mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
